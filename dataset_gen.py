@@ -17,9 +17,14 @@ def generate_terrain_data(data_type: TerrainType, data_count: int):
     slippage = 0.0
     incline = 0.0
     obstacle = 0.0
-
     # Range to generate specific amount of data
     for _ in range(data_count):
+        current_noise = random.uniform(-0.1, 0.1)
+        vibration_noise = random.uniform(-0.05, 0.05)
+        slip_noise = random.uniform(-0.05, 0.05)
+        incline_noise = random.uniform(-1, 1)
+        obstacle_noise = random.uniform(-1, 1)
+
         match(data_type):
             case TerrainType.Safe:
                 # Generates safe numbers in random ranges
@@ -56,8 +61,16 @@ def generate_terrain_data(data_type: TerrainType, data_count: int):
             case _:
                 # Invalid TerrainType used as parameters
                 return
-            
-        sample_data.append({"label": data_type.name, "data": [motor_current, vibration, slippage, incline, obstacle]}) # Add data to sample_data array
+        
+        # Add noise for model overfitting 
+        motor_current += current_noise
+        vibration += vibration_noise
+        slippage += slip_noise
+        incline += incline_noise
+        obstacle += obstacle_noise   
+    
+        # Add data to sample_data array
+        sample_data.append({"label": data_type.name, "data": [motor_current, vibration, slippage, incline, obstacle]}) 
     return sample_data
 
 def generate_terrain_dataset():

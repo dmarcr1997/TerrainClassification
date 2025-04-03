@@ -1,6 +1,6 @@
 from dataset_gen import generate_terrain_dataset
 from sklearn.model_selection import train_test_split # Split data 
-from model import create_and_train_model 
+from model import create_and_train_model, save_model
 
 if __name__ == "__main__":
     dataset = generate_terrain_dataset() # Get dataset
@@ -14,6 +14,5 @@ if __name__ == "__main__":
     print(f"Accuracy: {accuracy}")
     print("\nConfusion Matrix:")
     print(cm)
-    print("\nClassification Report:")
-    print(report)
+    save_model(model, 'terrain_classification.pkl')
     
