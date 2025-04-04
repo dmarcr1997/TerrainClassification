@@ -39,8 +39,8 @@ README.md <br>
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/yourusername/rover-terrain-classifier.git
-cd rover-terrain-classifier/TerrainClassification
+git clone https://github.com/dmarcr1997/TerrainClassification.git
+cd TerrainClassification/TerrainClassification
 ```
 
 ### 2. Install Dependencies
