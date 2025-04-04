@@ -19,6 +19,7 @@ def generate_terrain_data(data_type: TerrainType, data_count: int):
     obstacle = 0.0
     # Range to generate specific amount of data
     for _ in range(data_count):
+        # add random noise between ranges for each terrain characteristic
         current_noise = random.uniform(-0.1, 0.1)
         vibration_noise = random.uniform(-0.05, 0.05)
         slip_noise = random.uniform(-0.05, 0.05)
@@ -74,7 +75,7 @@ def generate_terrain_data(data_type: TerrainType, data_count: int):
     return sample_data
 
 def generate_terrain_dataset():
-    """Generates the 100 items for each TerrainType"""
+    """Generates 100 items for each TerrainType"""
     dataset = [
         generate_terrain_data(TerrainType.Safe, 100), 
         generate_terrain_data(TerrainType.Slippery, 100), 

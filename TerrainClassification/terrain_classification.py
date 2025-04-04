@@ -2,7 +2,8 @@ from dataset_gen import generate_terrain_dataset
 from sklearn.model_selection import train_test_split # Split data 
 from model import create_and_train_model, save_model
 
-if __name__ == "__main__":
+def main():
+    """Generates data to train model, splits it into data/labels, does a train test split for model traing, creates and trains model, and then saves model to pkl file"""
     dataset = generate_terrain_dataset() # Get dataset
     data = [item["data"] for item in dataset] # Retrieve data from dataset
     labels = [item["label"] for item in dataset] # Get labels from dataset
@@ -15,4 +16,8 @@ if __name__ == "__main__":
     print("\nConfusion Matrix:")
     print(cm)
     save_model(model, 'terrain_classification.pkl')
+
+# File entry point to run main function
+if __name__ == "__main__":
+    main()
     

@@ -7,9 +7,9 @@ model = load_model("terrain_classification.pkl") # load model
 
 @app.route('/') # base route
 def index():
-    return render_template('index.html')
-
-@app.route('/predict', methods=['POST'])
+    return render_template('index.html') #load html to screen
+    
+@app.route('/predict', methods=['POST']) # Post method to get prediction from model
 def predict():
     # Collect form data from user input form
     motor_current = float(request.form['motor_current'])
@@ -24,5 +24,5 @@ def predict():
     # Make prediction based on input to model
     prediction = model.predict(features)[0]
 
-    # Show result on the page
+    # Show model result on the page
     return render_template('index.html', prediction=prediction)
