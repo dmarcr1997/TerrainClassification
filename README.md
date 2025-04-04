@@ -82,7 +82,7 @@ flask run
 | **Vibration Level**   | (0–1.5)     | 0.0 – 1.5                   | Bumpiness or shake. Higher = rocky terrain.                  |
 | **Slip Ratio**        | (0–1.0)     | 0.0 – 1.0                   | 0 = perfect traction, 1 = lots of slippage.                  |
 | **Incline**           | Degrees     | 0 – 30                      | Tilt angle from IMU/accelerometer.                           |
-| **Obstacle Height**   | Centimeters | 0 – 30                      | Height of detected obstacle in front of the rover.           |
+| **Obstacle Distance**   | Centimeters | 0 – 30                    | Distance to detected obstacle in front of the rover.          |
 
 ## Recommended Input Ranges by Terrain Type for pretrained model
 
